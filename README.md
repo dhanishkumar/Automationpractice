@@ -1,127 +1,38 @@
-# 🛒 Shopping Automation Testing Framework
+🛒 Shopping Automation Testing Framework
+📌 Project Overview
+This project is a Selenium + Java Automation Testing Framework designed for testing a Shopping / E‑Commerce web application. It follows the Page Object Model (POM) design pattern and supports Data-Driven Testing, TestNG, Extent Reports, and Maven for build management.
+The framework is structured for scalability, maintainability, and reusability, making it suitable for real‑time automation projects and fresher‑level QA portfolios.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Java-1.8-orange?style=for-the-badge&logo=java" />
-  <img src="https://img.shields.io/github/stars/dhanishkumar/shopping?style=for-the-badge" />
-  <img src="https://img.shields.io/github/forks/dhanishkumar/shopping?style=for-the-badge" />
-  <img src="https://img.shields.io/github/followers/dhanishkumar?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Selenium-WebDriver-green?style=for-the-badge&logo=selenium" />
-  <img src="https://img.shields.io/badge/TestNG-Framework-blue?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Maven-Build-red?style=for-the-badge&logo=apachemaven" />
-  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge" />
-  <img src="https://img.shields.io/github/actions/workflow/status/dhanishkumar/shopping/maven.yml?style=for-the-badge&label=CI&logo=github" />
-</p>
-
-<p align="center">
-  <img src="https://media.giphy.com/media/L8K62iTDkzGX6/giphy.gif" width="600" />
-</p>
-
----
-
-## 📌 Project Overview
-
-This project is a **Selenium + Java Automation Testing Framework** designed to automate testing of a **Shopping / E-Commerce web application**.
-
-The framework follows the **Page Object Model (POM)** design pattern and supports:
-
-- Data-Driven Testing (Excel)
-- TestNG framework
-- Extent HTML Reports
-- Maven build & dependency management
-- GitHub Actions CI integration
-
-It is structured for **scalability, maintainability, and reusability**, making it ideal for **real-time automation projects, QA freshers, and interview demonstrations**.
-
----
-
-## 🧠 Framework Flow Diagram & Explanation
-
-testng.xml
-│
-▼
-BaseClass
-(Browser setup, WebDriver initialization, config loading)
-│
-▼
-TestCases
-(@Test methods – execution logic)
-│
-▼
-Page Object Model (POM)
-├─ Signin.java
-├─ MyAccount.java
-├─ PersonalInfo.java
-└─ YourAddress.java
-│
-▼
-Utilities
-├─ ReadConfiguration
-├─ DataDrivenTesting
-└─ ExtentReportWithListeners
-│
-▼
-Test Execution
-│
-▼
-Extent HTML Report + Screenshots (on failure)
-
-gherkin
-Copy code
-
-### 🔄 Framework Working Flow (Interview Ready)
-
-1. Test execution starts from **`testng.xml`**
-2. **BaseClass** initializes browser, WebDriver, and application URL
-3. Test cases invoke **Page Object methods**
-4. Page Objects interact with UI using Selenium
-5. Test data is fetched from **Excel (Data-Driven Testing)**
-6. **TestNG Listeners** track test execution
-7. **Extent Report** is generated automatically
-8. Screenshots are captured for failed test cases
-
-✅ Industry-standard automation architecture  
-✅ Clean separation of responsibilities  
-✅ Easy to scale and maintain  
-✅ CI/CD ready using GitHub Actions  
-
----
-
-## 🧰 Technology Stack 🚀
-
-| Tool / Technology  | Description                   |
-|--------------------|-------------------------------|
-| Java (JDK 1.8)     | Programming Language          |
-| Selenium WebDriver | Browser Automation            |
-| TestNG             | Test Execution & Reporting    |
-| Maven              | Build & Dependency Management |
-| Extent Reports     | HTML Test Reports             |
-| Eclipse IDE        | Development Environment       |
-| Git & GitHub       | Version Control & CI/CD       |
-
----
-
-## 📂 Project Structure Explanation 🗂️
-
+🧰 Technology Stack 🚀
+Tool / Technology	Description
+Java (JDK 1.8)	Programming Language
+Selenium WebDriver	Browser Automation
+TestNG	Test Execution & Reporting
+Maven	Build & Dependency Management
+Extent Reports	HTML Test Reports
+Eclipse IDE	Development Environment
+Git	Version Control
+📂 Project Structure Explanation 🗂️
 Shopping
 │
 ├── src/main/java
-│ └── (Application source if required)
+│   └── (Application source if required)
 │
 ├── src/test/java
-│ ├── com.Shopping.PageObject
-│ │ ├── MyAccount.java
-│ │ ├── PersonalInfo.java
-│ │ ├── Signin.java
-│ │ └── YourAddress.java
-│ │
-│ ├── com.Shopping.TestCase
-│ │ ├── BaseClass.java
-│ │ └── TestCases.java
-│ │
-│ └── com.Shopping.Utilities
-│ ├── DataDrivenTesting.java
-│ ├── ExtentReportWithListeners.java
-│ └── ReadConfiguration.java
+│   ├── com.Shopping.PageObject
+│   │   ├── MyAccount.java
+│   │   ├── PersonalInfo.java
+│   │   ├── Signin.java
+│   │   └── YourAddress.java
+│   │
+│   ├── com.Shopping.TestCase
+│   │   ├── BaseClass.java
+│   │   └── TestCases.java
+│   │
+│   └── com.Shopping.Utilities
+│       ├── DataDrivenTesting.java
+│       ├── ExtentReportWithListeners.java
+│       └── ReadConfiguration.java
 │
 ├── Drivers
 ├── Screenshots
@@ -132,131 +43,122 @@ Shopping
 ├── testng.xml
 └── shopping.html
 
-gherkin
-Copy code
+📘 Package‑Wise Detailed Explanation
+🔹 1. com.Shopping.PageObject
+This package contains Page Object Model (POM) classes. Each class represents one web page and stores:
+* WebElements (Locators)
+* Page-specific actions
+📄 Signin.java
+* Handles login functionality
+* Contains locators for email, password, and login button
+📄 MyAccount.java
+* Manages account dashboard validation
+* Verifies successful login
+📄 PersonalInfo.java
+* Handles user profile / personal information updates
+📄 YourAddress.java
+* Manages address add/update operations
+✔ Benefit: Separates UI logic from test logic
 
----
+🔹 2. com.Shopping.TestCase
+This package contains actual test execution logic.
+📄 BaseClass.java
+* Browser setup & teardown
+* WebDriver initialization
+* Common methods (launch URL, screenshot capture)
+📄 TestCases.java
+* Contains TestNG @Test methods
+* Calls Page Object methods
+* Implements test scenarios like:
+    * Login Test
+    * Profile Validation
+    * Address Update
 
-## 📘 Package-Wise Explanation
+🔹 3. com.Shopping.Utilities
+This package contains supporting utility classes.
+📄 ReadConfiguration.java
+* Reads values from config.properties
+* Handles:
+    * Browser name
+    * Application URL
+📄 DataDrivenTesting.java
+* Reads test data from Excel
+* Supports multiple test iterations
+📄 ExtentReportWithListeners.java
+* Generates HTML test execution reports
+* Captures screenshots on failure
+* Uses TestNG Listeners
 
-### 🔹 com.Shopping.PageObject
-- Contains Page Object Model classes
-- Stores locators and page-specific actions
-- Improves maintainability and reusability
+📁 Important Folders
+📂 Drivers
+* Stores browser driver files
+* Example:
+    * chromedriver.exe
+    * msedgedriver.exe
+📂 Screenshots
+* Stores failure screenshots
+* Automatically attached to Extent Reports
+📂 Configuration
+* Stores configuration files
+* Example: config.properties
 
-### 🔹 com.Shopping.TestCase
-- Contains test execution logic
-- `BaseClass` handles browser setup and teardown
-- `TestCases` executes test scenarios
-
-### 🔹 com.Shopping.Utilities
-- Reads configuration data
-- Handles Excel-based data-driven testing
-- Manages Extent Report generation with listeners
-
----
-
-## 🧪 Sample Test Scenarios
-
-### 🔐 Login Module
-
-| Test Case ID | Scenario                     | Expected Result              |
-|--------------|------------------------------|------------------------------|
-| TC_LOGIN_01  | Login with valid credentials | Login successful             |
-| TC_LOGIN_02  | Login with invalid password  | Error message displayed      |
-| TC_LOGIN_03  | Login with blank fields      | Validation message displayed |
-
-### 👤 My Account Module
-
-| Test Case ID | Scenario                 | Expected Result        |
-|--------------|--------------------------|------------------------|
-| TC_ACC_01    | Verify dashboard         | Dashboard loads        |
-| TC_ACC_02    | Update personal info     | Info updated           |
-
-### 🏠 Address Module
-
-| Test Case ID | Scenario                | Expected Result   |
-|--------------|-------------------------|-------------------|
-| TC_ADD_01    | Add new address         | Address saved     |
-| TC_ADD_02    | Update address          | Address updated   |
-
----
-
-## ⚙️ Configuration File Example
-
-```properties
+⚙️ Configuration File Example
 browser=chrome
 url=https://example-shopping-site.com
-▶️ How to Run the Project 🏃‍♂️
-Using TestNG
-Right-click testng.xml
 
-Run As → TestNG Suite
+🧪 TestNG Configuration (testng.xml)
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Shopping Test Suite">
+    <test name="Shopping Tests">
+        <classes>
+            <class name="com.Shopping.TestCase.TestCases"/>
+        </classes>
+    </test>
+</suite>
 
-Using Maven
-bash
-Copy code
-mvn test
-📊 Reporting
-Extent HTML Reports
-
-Pass / Fail status
-
-Detailed execution steps
-
-Screenshots on failure
-
-Report Path:
-
-bash
-Copy code
+📊 Reporting 📈
+* Uses Extent Reports
+* Auto‑generated after execution
+* Includes:
+    * Test Steps
+    * Pass / Fail Status
+    * Screenshots on failure
+Report Location:
 /test-output/ExtentReport.html
+
+🧪 Sample Test Scenarios
+🔐 Login Module
+Test Case ID	Scenario	Expected Result
+TC_LOGIN_01	Login with valid credentials	User should login successfully
+TC_LOGIN_02	Login with invalid password	Error message should be displayed
+TC_LOGIN_03	Login with blank fields	Validation message should appear
+👤 My Account Module
+Test Case ID	Scenario	Expected Result
+TC_ACC_01	Verify account dashboard	Account page should load
+TC_ACC_02	Update personal info	Details should update successfully
+🏠 Address Module
+Test Case ID	Scenario	Expected Result
+TC_ADD_01	Add new address	Address should be saved
+TC_ADD_02	Update existing address	Address should update
+▶️ How to Run the Project 🏃‍♂️
+Option 1: Using TestNG
+1. Right‑click testng.xml
+2. Run As → TestNG Suite
+Option 2: Using Maven
+mvn test
+
 ✅ Key Features ✨
-✔ Page Object Model (POM)
-✔ Data-Driven Testing (Excel)
-✔ TestNG Listeners
-✔ Extent HTML Reports
-✔ Screenshot Capture on Failure
-✔ Maven Dependency Management
-✔ GitHub Actions CI Integration
+✔ Page Object Model (POM) ✔ Data‑Driven Testing (Excel) ✔ TestNG Listeners ✔ Extent HTML Reports ✔ Screenshot Capture on Failure ✔ Maven Dependency Management ✔ Clean & Scalable Structure
 
-👨‍💻 Author
-Dhanish Kumar
-B.Tech (Computer Science) – 2025
-Manual & Automation Tester
+👨‍💻 Author 👨‍💻
+Dhanish Kumar B.Tech (Computer Science) – 2025 Manual & Automation Tester
+🔗 GitHub: https://github.com/dhanishkumar 🔗 LinkedIn: https://linkedin.com/in/dhanish-kumar-533aaa173
 
-🔗 GitHub: https://github.com/dhanishkumar
-🔗 LinkedIn: https://linkedin.com/in/dhanish-kumar-533aaa173
-
-📌 Note
-This framework is suitable for:
-
-QA Freshers
-
-Automation Practice
-
-Interview Demonstrations
-
-Academic / Training Projects
+📌 Note 📝
+This framework is ideal for:
+* QA Freshers
+* Automation Practice
+* Interview Demonstration
+* Academic / Training Projects
 
 ⭐ If you like this project, give it a star ⭐ and share it!
-
-markdown
-Copy code
-
----
-
-## 🎯 What I fixed for you
-- ✅ Removed broken `gherkin / copy code` text  
-- ✅ Fixed all Markdown formatting  
-- ✅ Clean headings & sections  
-- ✅ One single `.md` file  
-- ✅ GitHub-ready & interview-ready  
-
-If you want next:
-- 📄 **PDF project documentation**
-- 🎯 **Resume bullet points**
-- 🧩 **Cucumber BDD layer**
-- ⚡ **Parallel execution setup**
-
-Just tell me 👍
